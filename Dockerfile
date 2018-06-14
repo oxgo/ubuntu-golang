@@ -6,6 +6,7 @@ ENV LANG en_US.UTF-8
 ENV GOVERSION 1.10.1
 ENV GOROOT /opt/go
 ENV GOPATH /root/.go
+ENV PATH $GOPATH/bin:$PATH
 
 RUN apt-get update && \
     apt-get install -y wget && \
@@ -13,5 +14,8 @@ RUN apt-get update && \
     tar zxf go${GOVERSION}.linux-amd64.tar.gz && rm go${GOVERSION}.linux-amd64.tar.gz && \
     ln -s /opt/go/bin/go /usr/bin/ && \
     mkdir $GOPATH
+    mkdir $GOPATH/src
+    mkdir $GOPATH/pkg
+    mkdir $GOPATH/bin
 
 CMD ["/usr/bin/go"]
