@@ -13,9 +13,9 @@ RUN apt-get update && \
     cd /opt && wget https://storage.googleapis.com/golang/go${GOVERSION}.linux-amd64.tar.gz && \
     tar zxf go${GOVERSION}.linux-amd64.tar.gz && rm go${GOVERSION}.linux-amd64.tar.gz && \
     ln -s /opt/go/bin/go /usr/bin/ && \
-    mkdir $GOPATH
-    mkdir $GOPATH/src
-    mkdir $GOPATH/pkg
+    mkdir $GOPATH && \
+    mkdir $GOPATH/src && \
+    mkdir $GOPATH/pkg && \
     mkdir $GOPATH/bin
 
 CMD ["/usr/bin/go"]
